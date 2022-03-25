@@ -1,7 +1,6 @@
 package com.marcoscouto.contabancaria.step.writer;
 
 import com.marcoscouto.contabancaria.data.Conta;
-import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

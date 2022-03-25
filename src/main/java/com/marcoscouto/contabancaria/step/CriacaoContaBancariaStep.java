@@ -14,11 +14,11 @@ import org.springframework.stereotype.Component;
 public class CriacaoContaBancariaStep {
 
     private final StepBuilderFactory stepBuilderFactory;
-    private final JdbcPagingItemReader reader;
+    private final JdbcPagingItemReader<Cliente> reader;
     private final FunctionItemProcessor<Cliente, Conta> processor;
-    private final JdbcBatchItemWriter writer;
+    private final JdbcBatchItemWriter<Conta> writer;
 
-    public CriacaoContaBancariaStep(StepBuilderFactory stepBuilderFactory, JdbcPagingItemReader reader, FunctionItemProcessor<Cliente, Conta> processor, JdbcBatchItemWriter writer) {
+    public CriacaoContaBancariaStep(StepBuilderFactory stepBuilderFactory, JdbcPagingItemReader<Cliente> reader, FunctionItemProcessor<Cliente, Conta> processor, JdbcBatchItemWriter<Conta> writer) {
         this.stepBuilderFactory = stepBuilderFactory;
         this.reader = reader;
         this.processor = processor;
