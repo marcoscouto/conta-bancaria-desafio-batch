@@ -3,6 +3,7 @@ package com.marcoscouto.contabancaria.step.reader;
 import com.marcoscouto.contabancaria.data.Cliente;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.batch.item.database.JdbcPagingItemReader;
+import org.springframework.batch.item.database.Order;
 import org.springframework.batch.item.database.PagingQueryProvider;
 import org.springframework.batch.item.database.support.SqlPagingQueryProviderFactoryBean;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import javax.sql.DataSource;
+
+import java.util.Map;
+
+import static org.springframework.batch.item.database.Order.ASCENDING;
 
 @Configuration
 public class ClientesReader {
@@ -41,7 +46,8 @@ public class ClientesReader {
         SqlPagingQueryProviderFactoryBean queryProvider = new SqlPagingQueryProviderFactoryBean();
         queryProvider.setDataSource(dataSource);
         queryProvider.setSelectClause("SELECT *");
-        queryProvider.setFromClause("FROM clientes");
+        queryProvider.setFromClause("FROM cliente");
+        queryProvider.setSortKeys(Map.of("idade", ASCENDING));
         return queryProvider;
     }
 

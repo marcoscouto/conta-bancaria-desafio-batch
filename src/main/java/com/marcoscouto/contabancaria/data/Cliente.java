@@ -47,4 +47,5 @@ public class Cliente {
     public void setFaixaSalarial(Double faixaSalarial) {
         this.faixaSalarial = faixaSalarial;
     }
+
 }
