@@ -31,5 +31,17 @@ public enum TipoContaEnum {
 
     abstract BigDecimal getLimite();
 
+    public static TipoContaEnum getTipoConta(Double faixaSalarial){
+        if (faixaSalarial <= 3000)
+            return PRATA;
+        if (faixaSalarial > 3000 && faixaSalarial <= 5000)
+            return OURO;
+        if (faixaSalarial > 5000 && faixaSalarial <= 10000)
+            return PLATINA;
+        if (faixaSalarial > 10000)
+            return DIAMANTE;
+        return null;
+    }
+
 }
 
